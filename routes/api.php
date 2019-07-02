@@ -23,3 +23,4 @@ Route::get('/laundry/{id}', 'NyuciController@show');
 Route::get('/user', 'UserController@index');
 Route::get('/user/{id}', 'UserController@show');
 Route::post('/user', 'UserController@store');
+Route::post('/user/sigin', 'UserController@signin');
