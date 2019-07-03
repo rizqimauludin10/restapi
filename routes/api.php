@@ -22,5 +22,7 @@ Route::get('/laundry/{id}', 'NyuciController@show');
 
 Route::get('/user', 'UserController@index');
 Route::get('/user/{id}', 'UserController@show');
-Route::post('/user/register', 'UserController@store');
-Route::post('/user/sigin', 'UserController@signin');
+
+Route::get('/users', 'UserController@users');
+Route::post('/auth/register', 'AuthController@register');
+Route::post('/auth/login', 'AuthController@login');
