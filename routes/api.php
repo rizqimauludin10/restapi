@@ -20,9 +20,9 @@ use Illuminate\Http\Request;
 Route::get('/laundry', 'NyuciController@index');
 Route::get('/laundry/{id}', 'NyuciController@show');
 
-Route::get('/user', 'UserController@index');
 Route::get('/user/{id}', 'UserController@show');
-
 Route::get('/users', 'UserController@users');
 Route::post('/auth/register', 'AuthController@register');
 Route::post('/auth/login', 'AuthController@login');
+Route::get('/users/profile', 'UserController@profile') -> middleware('auth:api');
+/*Route::get('/user', 'UserController@index');*/

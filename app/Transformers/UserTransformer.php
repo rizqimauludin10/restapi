@@ -8,6 +8,7 @@ use League\Fractal\TransformerAbstract;
 class UserTransformer extends TransformerAbstract {
     public function transform(Nyuci_users $user) {
         return [
+            'id' => $user->id,
             'email' => $user->email,
             'password' => $user->password,
             'name' => $user->name,
