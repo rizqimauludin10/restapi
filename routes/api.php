@@ -17,12 +17,22 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 
-Route::get('/laundry', 'NyuciController@index');
-Route::get('/laundry/{id}', 'NyuciController@show');
+
+Route::get('/laundry', 'NyuciController@index', ['middleware' => 'cors']);
+Route::get('/laundry/{id}', 'NyuciController@show', ['middleware' => 'cors']);
+
+Route::post('/laundry', 'NyuciController@post');
+Route::post('/sch', 'NyuciScheduleController@store');
+Route::get('/sche', 'NyuciScheduleController@index');
+Route::post('/service' , 'ServicesController@store');
+
+Route::get('/service' , 'ServicesController@index');
 
 Route::get('/user/{id}', 'UserController@show');
 Route::get('/users', 'UserController@users');
-Route::post('/auth/register', 'AuthController@register');
-Route::post('/auth/login', 'AuthController@login');
+Route::post('/auth/register', 'AuthController@register', ['middleware' => 'cors']);
+Route::post('/auth/login', 'AuthController@login', ['middleware' => 'cors']);
 Route::get('/users/profile', 'UserController@profile') -> middleware('auth:api');
+
+Route::get('/showAll', 'NyuciController@showAll');
 /*Route::get('/user', 'UserController@index');*/
